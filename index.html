@@ -7,25 +7,54 @@
 }
 
 body {
-    background: #f0f2f5;
-    color: #2c3e50;
+    background: #1a1a1a;
+    color: #ffffff;
     line-height: 1.6;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .cv-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #121212 0%, #2a2a2a 100%);
     padding: 3rem 0;
     color: white;
     text-align: center;
     border-radius: 15px;
     margin-bottom: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #444;
+}
+
+.cv-header::before,
+.cv-header::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, #cc0000, #990000);
+    animation: raceStripe 2s ease-out forwards;
+}
+
+.cv-header::before {
+    top: 0;
+    left: -100%;
+}
+
+.cv-header::after {
+    bottom: 0;
+    right: -100%;
+}
+
+@keyframes raceStripe {
+    to {
+        transform: translateX(100%);
+    }
 }
 
 .profile-img {
@@ -35,80 +64,131 @@ body {
     border: 5px solid white;
     margin-bottom: 1rem;
     object-fit: cover;
+    position: relative;
+    z-index: 2;
 }
 
 .name {
     font-size: 2.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.name::before,
+.name::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #cc0000, #990000);
+    transform: rotate(45deg);
+    display: block;
+    border: 2.5px solid #800000;
+    flex-shrink: 0;
 }
 
 .title {
     font-size: 1.2rem;
     opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+.sections-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+    position: relative;
+}
+
+.sections-wrapper::before,
+.sections-wrapper::after {
+    display: none;
+}
+
+.sections-wrapper::before,
+.sections-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, #cc0000, transparent);
+}
+
+.sections-wrapper::before {
+    left: 0;
+}
+
+.sections-wrapper::after {
+    right: 0;
 }
 
 .section {
-    background: white;
+    background: #2a2a2a;
     padding: 2rem;
-    border-radius: 10px;
-    margin-bottom: 2rem;
+    border-radius: 15px;
+    margin: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
     position: relative;
-}
-
-.section:hover {
-    transform: translateY(-5px);
+    border: 2px solid #444;
+    flex: 1 1 350px;
+    min-width: 300px;
+    color: #ffffff;
 }
 
 .section-title {
-    color: #667eea;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
     position: relative;
-    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
 }
 
-.section-title::after {
+.section-title::before {
     content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background: #667eea;
-}
-
-.skill-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-}
-
-.skill-item {
-    background: #f8f9fa;
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.experience-item {
-    margin-bottom: 1.5rem;
-    overflow: visible;
-    position: relative;
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(135deg, #cc0000, #990000);
+    transform: rotate(45deg);
+    display: block;
+    border: 2px solid #800000;
+    flex-shrink: 0;
 }
 
 .experience-title {
-    font-weight: 600;
-    color: #2c3e50;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     margin-bottom: 0.5rem;
 }
 
+.experience-title::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(135deg, #cc0000, #990000);
+    transform: rotate(45deg);
+    display: block;
+    border: 1.5px solid #800000;
+    flex-shrink: 0;
+}
+
 .experience-date {
-    color: #666;
+    color: #aaaaaa;
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
+}
+
+p {
+    color: #cccccc;
 }
 
 .contact-info {
@@ -117,6 +197,8 @@ body {
     gap: 2rem;
     margin-top: 1rem;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
 }
 
 .contact-item {
@@ -194,7 +276,7 @@ body {
 
 .progress-ring-circle {
     fill: none;
-    stroke: #667eea;
+    stroke: #cc0000;
     stroke-width: 8;
     stroke-linecap: round;
     transition: stroke-dashoffset 0.5s ease;
@@ -206,23 +288,40 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-}
-
-.percentage {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #667eea;
+    color: #ffffff;
 }
 
 .skill-name {
     display: block;
     font-size: 0.9rem;
     margin-top: 5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.skill-name::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #cc0000, #990000);
+    transform: rotate(45deg);
+    display: block;
+    border: 1px solid #800000;
+    flex-shrink: 0;
+}
+
+.percentage {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
 }
 
 .carousel-btn {
-    background: #667eea;
+    background: linear-gradient(135deg, #cc0000 0%, #990000 100%);
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -233,10 +332,11 @@ body {
     cursor: pointer;
     color: white;
     transition: background-color 0.3s ease;
+    border: 2px solid #800000;
 }
 
 .carousel-btn:hover {
-    background: #764ba2;
+    background: linear-gradient(135deg, #990000 0%, #800000 100%);
 }
 
 .prev-btn {
@@ -248,7 +348,7 @@ body {
 }
 
 .download-btn {
-    background: #667eea;
+    background: linear-gradient(135deg, #cc0000 0%, #990000 100%);
     border: none;
     border-radius: 8px;
     padding: 8px 16px;
@@ -261,11 +361,11 @@ body {
     margin-top: 8px;
     position: relative;
     z-index: 1;
+    border: 2px solid #800000;
 }
 
 .download-btn:hover {
-    background: #764ba2;
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, #990000 0%, #800000 100%);
 }
 
 .download-btn:active {
@@ -301,10 +401,17 @@ body {
     height: 0;
     overflow: hidden;
     transition: height 0.3s ease;
-    background: white;
+    background: #2a2a2a;
+    border: 1px solid #444;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     z-index: 100;
+}
+
+.pdf-preview iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 @media (max-width: 768px) {
@@ -352,7 +459,7 @@ body {
     }
     
     .pdf-preview iframe {
-        height: 280px;
+        height: 180px;
     }
     
     .pdf-preview {
@@ -374,10 +481,106 @@ body {
         padding: 1rem;
     }
 }
+
+@media (max-width: 768px) {
+    .section {
+        flex: 1 1 100%;
+        margin: 1rem 0;
+    }
+    
+    .sections-wrapper {
+        padding: 0;
+    }
+    
+    .section-title::before {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .experience-title::before {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .name::before,
+    .name::after {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+.animated-line {
+    position: absolute;
+    height: 4px;
+    width: 150px; 
+    opacity: 0.6;
+    transition: transform 1.5s ease-out;
+    background: linear-gradient(90deg, #cc0000, #990000);
+    z-index: 0;
+}
+
+.line-1 {
+    background: linear-gradient(90deg, #cc0000, #990000);
+    top: 40%;
+    left: 20%; 
+    transform: rotate(-45deg) translateX(-100%) translateY(-50%);
+}
+
+.line-2 {
+    background: linear-gradient(90deg, #990000, #cc0000);
+    top: 40%;
+    right: 20%; 
+    transform: rotate(45deg) translateX(100%) translateY(-50%);
+}
+
+.line-3 {
+    background: linear-gradient(90deg, #cc0000, #990000);
+    bottom: 40%;
+    left: 20%; 
+    transform: rotate(45deg) translateX(-100%) translateY(50%);
+}
+
+.line-4 {
+    background: linear-gradient(90deg, #990000, #cc0000);
+    bottom: 40%;
+    right: 20%; 
+    transform: rotate(-45deg) translateX(100%) translateY(50%);
+}
+
+.line-1.animate {
+    opacity: 0.6;
+    transform: rotate(-45deg) translateX(-20%);
+}
+
+.line-2.animate {
+    opacity: 0.6;
+    transform: rotate(45deg) translateX(20%);
+}
+
+.line-3.animate {
+    opacity: 0.6;
+    transform: rotate(45deg) translateX(-20%);
+}
+
+.line-4.animate {
+    opacity: 0.6;
+    transform: rotate(-45deg) translateX(20%);
+}
+
+.section-title,
+.experience-title,
+.name,
+.skill-name {
+    word-break: break-word;
+}
 </style></head>
 <body>
     <div class="container">
         <header class="cv-header animate-fade-in">
+            <div class="animated-line line-1"></div>
+            <div class="animated-line line-2"></div>
+            <div class="animated-line line-3"></div>
+            <div class="animated-line line-4"></div>
             <img src="image.png" alt="Miguel Ángel Figueroa Muñoz" class="profile-img">
             <h1 class="name">Miguel Ángel Figueroa Muñoz</h1>
             <p class="title">Desarrollador Web & Técnico en Programación</p>
@@ -390,138 +593,142 @@ body {
                 </div>
                 <div class="contact-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                        <path d="M20 10.999h2C22 5.869 18.127 2 12.99 2v2C17.052 4 20 6.943 20 10.999z"/><path d="M13 8c2.103 0 3 .897 3 3h2c0-3.225-1.775-5-5-5v2zm3.422 5.443a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a1 1 0 0 0-.086-1.391l-4.064-3.696z"/>
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
                     </svg>
                     <span>+56 9 5706 8275</span>
                 </div>
                 <div class="contact-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 16.057v-3.057h2.994c-.059 1.143-.212 2.24-.456 3.279-.823-.12-1.674-.188-2.538-.222zm1.957 2.162c-.499 1.33-1.159 2.497-1.957 3.456v-3.62c.666.028 1.319.081 1.957.164zm-1.957-7.219v-3.015c.868-.034 1.721-.103 2.548-.224.238 1.027.389 2.111.446 3.239h-2.994zm0-5.014v-3.661c.806.969 1.471 2.15 1.971 3.496-.642.084-1.3.137-1.971.165zm2.703-3.267c1.237.496 2.354 1.228 3.29 2.146-.642.234-1.311.442-2.019.607-.344-.992-.775-1.91-1.271-2.753zm-7.241 13.56c-.244-1.039-.398-2.136-.456-3.279h2.994v3.057c-.865.034-1.714.102-2.538.222zm2.538 1.776v3.62c-.798-.959-1.458-2.126-1.957-3.456.638-.083 1.291-.136 1.957-.164zm-2.994-7.055c.057-1.128.207-2.212.446-3.239.827.121 1.68.19 2.548.224v3.015h-2.994zm1.024-5.179c.5-1.346 1.165-2.527 1.97-3.496v3.661c-.671-.028-1.329-.081-1.97-.165zm-2.005-.35c-.708-.165-1.377-.373-2.018-.607.937-.918 2.053-1.65 3.29-2.146-.496.844-.927 1.762-1.272 2.753zm-.549 1.918c-.264 1.151-.434 2.36-.492 3.611h-3.933c.165-1.658.739-3.197 1.617-4.518.88.361 1.816.67 2.808.907zm.009 9.262c-.988.236-1.92.542-2.797.9-.89-1.328-1.471-2.879-1.637-4.551h3.934c.058 1.265.231 2.488.5 3.651zm.553 1.917c.342.976.768 1.881 1.257 2.712-1.223-.49-2.326-1.211-3.256-2.115.636-.229 1.299-.435 1.999-.597zm9.924 0c.7.163 1.362.367 1.999.597-.931.903-2.034 1.625-3.257 2.116.489-.832.915-1.737 1.258-2.713zm.553-1.917c.27-1.163.442-2.386.501-3.651h3.934c-.167 1.672-.748 3.223-1.638 4.551-.877.358-1.81.664-2.797-.9zm.501-5.651c-.058-1.251-.229-2.46-.492-3.611.992-.237 1.929-.546 2.809-.907.877 1.321 1.451 2.86 1.616 4.518h-3.933z"/>
+                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 16.057v-3.057h2.994c-.059 1.143-.212 2.24-.456 3.279-.823-.12-1.674-.188-2.538-.222zm1.957 2.162c-.499 1.33-1.159 2.497-1.957 3.456v-3.62c.666.028 1.319.081 1.957.164zm-1.957-7.219v-3.015c.868-.034 1.721-.103 2.548-.224.238 1.027.389 2.111.446 3.239h-2.994zm0-5.014v-3.661c.806.969 1.471 2.15 1.971 3.496-.642.084-1.3.137-1.971.165zm2.703-3.267c1.237.496 2.354 1.228 3.29 2.146-.642.234-1.311.442-2.019.607-.344-.992-.775-1.91-1.271-2.753zm-7.241 13.56c-.244-1.039-.398-2.136-.456-3.279h2.994v3.057c-.865.034-1.714.102-2.538.222zm2.538 1.776v3.62c-.798-.959-1.458-2.126-1.957-3.456.638-.083 1.291-.136 1.957-.164zm-2.994-7.055c.057-1.128.207-2.212.446-3.239.827.121 1.68.19 2.548.224v3.015h-2.994zm1.024-5.179c.5-1.346 1.165-2.527 1.97-3.496v3.661c-.671-.028-1.329-.081-1.97-.165zm-2.005-.35c-.708-.165-1.377-.373-2.018-.607.937-.918 2.053-1.65 3.29-2.146-.496.844-.927 1.762-1.272 2.753zm-.549 1.918c-.264 1.151-.434 2.36-.492 3.611h-3.933c.165-1.658.739-3.197 1.617-4.518.88.361 1.816.67 2.808.907zm.009 9.262c-.988.236-1.92.542-2.797.9-.89-1.328-1.471-2.879-1.637-4.551h3.934c.058 1.265.231 2.488.5 3.651zm.553 1.917c.342.976.768 1.881 1.257 2.712-1.223-.49-2.326-1.211-3.256-2.115.636-.229 1.299-.435 1.999-.597zm9.924 0c.7.163 1.362.367 1.999.597-.931.903-2.034 1.625-3.257 2.116.489-.832.915-1.737 1.258-2.713zm.553-1.917c.27-1.163.442-2.386.501-3.651h3.934c-.167 1.672-.748 3.223-1.638 4.551-.877.358-1.81.664-2.797-.9zm.501-5.651c-.058-1.251-.229-2.46-.501-3.651.992-.237 1.929-.546 2.809-.907.877 1.321 1.451 2.86 1.617 4.518h-3.933z"/>
                     </svg>
                     <a href="https://miguelcv.site" target="_blank">miguelcv.site</a>
                 </div>
             </div>
         </header>
 
-        <section class="section animate-fade-in">
-            <h2 class="section-title">Acerca de mí</h2>
-            <p>
-                Soy apasionado por la tecnología, busco aplicar mis habilidades en desarrollo web y programación para crear 
-                soluciones tecnológicas eficientes y de impacto.
-            </p>
-        </section>
+        <div class="sections-wrapper">
+            <section class="section animate-fade-in">
+                <h2 class="section-title">Acerca de mí</h2>
+                <p>
+                    Soy apasionado por la tecnología, busco aplicar mis habilidades en desarrollo web y programación para crear 
+                    soluciones tecnológicas eficientes y de impacto.
+                </p>
+            </section>
 
-        <section class="section animate-fade-in">
-            <h2 class="section-title">Experiencia Laboral</h2>
-            <div class="experience-item">
-                <h3 class="experience-title">Desarrollador Web Freelance</h3>
-                <p>Creación de páginas web personalizadas para uso personal y práctica.</p>
-            </div>
-            <div class="experience-item">
-                <h3 class="experience-title">Técnico en Reparación de Celulares</h3>
-                <p>Servicio independiente de diagnóstico y reparación de dispositivos móviles.</p>
-            </div>
-            <div class="experience-item">
-                <h3 class="experience-title">Especialista en Mantenimiento de PCs</h3>
-                <p>Servicios de mantenimiento y reparación de computadoras personales.</p>
-            </div>
-        </section>
+            <section class="section animate-fade-in">
+                <h2 class="section-title">Experiencia Laboral</h2>
+                <div class="experience-item">
+                    <h3 class="experience-title">Desarrollador Web Freelance</h3>
+                    <p>Creación de páginas web personalizadas para uso personal y práctica.</p>
+                </div>
+                <div class="experience-item">
+                    <h3 class="experience-title">Técnico en Reparación de Celulares</h3>
+                    <p>Servicio independiente de diagnóstico y reparación de dispositivos móviles.</p>
+                </div>
+                <div class="experience-item">
+                    <h3 class="experience-title">Especialista en Mantenimiento de PCs</h3>
+                    <p>Servicios de mantenimiento y reparación de computadoras personales.</p>
+                </div>
+            </section>
 
-        <section class="section animate-fade-in">
-            <h2 class="section-title">Formación Académica</h2>
-            <div class="experience-item">
-                <h3 class="experience-title">Liceo Instituto Comercial Linares (L.B.I.C.)</h3>
-                <p class="experience-date">2022 - 2025</p>
-                <p>Especialidad en programación, formación como técnico profesional en programación.</p>
-            </div>
-            <div class="experience-item">
-                <h3 class="experience-title">Escuela Pedro Aguirre Cerda (P.A.C.)</h3>
-                <p class="experience-date">2011 - 2021</p>
-                <p>Primeros pasos en tecnología con cursos de robótica con legos.</p>
-            </div>
-        </section>
+            <section class="section animate-fade-in">
+                <h2 class="section-title">Formación Académica</h2>
+                <div class="experience-item">
+                    <h3 class="experience-title">Liceo Instituto Comercial Linares (L.B.I.C.)</h3>
+                    <p class="experience-date">2022 - 2025</p>
+                    <p>Especialidad en programación, formación como técnico profesional en programación.</p>
+                </div>
+                <div class="experience-item">
+                    <h3 class="experience-title">Escuela Pedro Aguirre Cerda (P.A.C.)</h3>
+                    <p class="experience-date">2011 - 2021</p>
+                    <p>Primeros pasos en tecnología con cursos de robótica con legos.</p>
+                </div>
+            </section>
 
-        <section class="section animate-fade-in">
-            <h2 class="section-title">Cursos Fundación Telefónica</h2>
-            <div class="experience-item">
-                <h3 class="experience-title">Diseño Web con HTML5 + CSS</h3>
-                <p class="experience-date">2024</p>
-                <div class="certificate-container">
-                    <button class="download-btn" data-certificate="Certificado (Diseño Web con HTML5 + CSS).pdf">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                            <polyline points="7 10 12 15 17 10"/>
-                            <line x1="12" y1="15" x2="12" y2="3"/>
-                        </svg>
-                        Descargar Certificado
-                    </button>
-                    <div class="pdf-preview">
-                        <iframe src="Certificado (Diseño Web con HTML5 + CSS).pdf" frameborder="0"></iframe>
+            <section class="section animate-fade-in">
+                <h2 class="section-title">Cursos Fundación Telefónica</h2>
+                <div class="experience-item">
+                    <h3 class="experience-title">Diseño Web con HTML5 + CSS</h3>
+                    <p class="experience-date">2024</p>
+                    <div class="certificate-container">
+                        <button class="download-btn" data-certificate="Certificado (Diseño Web con HTML5 + CSS).pdf">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Descargar Certificado
+                        </button>
+                        <div class="pdf-preview">
+                            <iframe src="" frameborder="0"></iframe>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="experience-item">
-                <h3 class="experience-title">Marketing Digital</h3>
-                <p class="experience-date">2024</p>
-                <div class="certificate-container">
-                    <button class="download-btn" data-certificate="Certificado (Marketing Digital).pdf">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                            <polyline points="7 10 12 15 17 10"/>
-                            <line x1="12" y1="15" x2="12" y2="3"/>
-                        </svg>
-                        Descargar Certificado
-                    </button>
-                    <div class="pdf-preview">
-                        <iframe src="Certificado (Marketing Digital).pdf" frameborder="0"></iframe>
+                <div class="experience-item">
+                    <h3 class="experience-title">Marketing Digital</h3>
+                    <p class="experience-date">2024</p>
+                    <div class="certificate-container">
+                        <button class="download-btn" data-certificate="Certificado (Marketing Digital).pdf">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Descargar Certificado
+                        </button>
+                        <div class="pdf-preview">
+                            <iframe src="" frameborder="0"></iframe>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="experience-item">
-                <h3 class="experience-title">Principios básicos de Internet de las Cosas</h3>
-                <p class="experience-date">2024</p>
-                <div class="certificate-container">
-                    <button class="download-btn" data-certificate="Certificado (Principios básicos de Internet de las Cosas).pdf">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                            <polyline points="7 10 12 15 17 10"/>
-                            <line x1="12" y1="15" x2="12" y2="3"/>
-                        </svg>
-                        Descargar Certificado
-                    </button>
-                    <div class="pdf-preview">
-                        <iframe src="Certificado (Principios básicos de Internet de las Cosas).pdf" frameborder="0"></iframe>
+                <div class="experience-item">
+                    <h3 class="experience-title">Principios básicos de Internet de las Cosas</h3>
+                    <p class="experience-date">2024</p>
+                    <div class="certificate-container">
+                        <button class="download-btn" data-certificate="Certificado (Principios básicos de Internet de las Cosas).pdf">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Descargar Certificado
+                        </button>
+                        <div class="pdf-preview">
+                            <iframe src="" frameborder="0"></iframe>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <p><em>Me sigo capacitando con más cursos</em></p>
-        </section>
+                <p><em>Me sigo capacitando con más cursos</em></p>
+            </section>
 
-        <section class="section animate-fade-in">
-            <h2 class="section-title">Competencias</h2>
-            <div class="skills-carousel">
-                <button class="carousel-btn prev-btn">
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-                    </svg>
-                </button>
-                <div class="carousel-container">
+            <section class="section animate-fade-in">
+                <h2 class="section-title">Competencias</h2>
+                <div class="skills-carousel">
+                    <button class="carousel-btn prev-btn">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        </svg>
+                    </button>
+                    <div class="carousel-container">
+                    </div>
+                    <button class="carousel-btn next-btn">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                        </svg>
+                    </button>
                 </div>
-                <button class="carousel-btn next-btn">
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="currentColor" d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
-                    </svg>
-                </button>
-            </div>
-        </section>
+            </section>
 
-        <section class="section animate-fade-in">
-            <h2 class="section-title">Idiomas</h2>
-            <div class="skill-list">
-                <div class="skill-item">Español - Nativo</div>
-                <div class="skill-item">Inglés - A2 (lectura técnica y comunicación básica)</div>
-            </div>
-        </section>
+            <section class="section animate-fade-in">
+                <h2 class="section-title">Idiomas</h2>
+                <div class="skill-list">
+                    <div class="skill-item">Español - Nativo</div>
+                    <div class="skill-item">Inglés - A2 (lectura técnica y comunicación básica)</div>
+                </div>
+            </section>
+        </div>
     </div>
 
     <script>
@@ -711,9 +918,8 @@ body {
                 if (!isMobile) {
                     // Desktop preview behavior
                     container.addEventListener('mouseenter', () => {
-                        if (!iframe.src) {
-                            iframe.src = certificatePath;
-                        }
+                        // Set the iframe src when hovering
+                        iframe.src = `/${certificatePath}`; 
                         container.style.marginBottom = '420px';
                         preview.style.height = '400px';
                     });
@@ -721,8 +927,6 @@ body {
                     container.addEventListener('mouseleave', () => {
                         container.style.marginBottom = '0';
                         preview.style.height = '0';
-                        // Optional: clear iframe src when mouse leaves
-                        // iframe.src = '';
                     });
                 } else {
                     // Remove preview functionality on mobile
@@ -738,14 +942,14 @@ body {
                     button.classList.add('downloading');
                     
                     try {
-                        const response = await fetch(certificatePath);
+                        const response = await fetch(`/${certificatePath}`); 
                         if (!response.ok) throw new Error('Download failed');
                         
                         const blob = await response.blob();
                         const url = window.URL.createObjectURL(blob);
                         const a = document.createElement('a');
                         a.href = url;
-                        a.download = certificatePath.split('/').pop();
+                        a.download = certificatePath;
                         document.body.appendChild(a);
                         a.click();
                         document.body.removeChild(a);
@@ -758,6 +962,28 @@ body {
                             button.classList.remove('downloading');
                         }, 500);
                     }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lines = document.querySelectorAll('.animated-line');
+            
+            // Trigger animation after a short delay
+            setTimeout(() => {
+                lines.forEach(line => line.classList.add('animate'));
+            }, 300);
+            
+            // Add subtle hover effect to sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.addEventListener('mouseover', () => {
+                    section.style.transform = 'scale(1.01)';
+                });
+                section.addEventListener('mouseout', () => {
+                    section.style.transform = 'scale(1)';
                 });
             });
         });

@@ -1,4 +1,4 @@
-html><head><base href="/" /><title>CV - Miguel Ángel</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
+<html><head><base href="/" /><title>CV - Miguel Ángel</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
 * {
     margin: 0;
     padding: 0;
@@ -626,4 +626,142 @@ body {
                 circle.style.strokeDashoffset = circumference;
 
                 // Animate to target
-                const offset = circumference - (t
+                const offset = circumference - (targetPercent / 100 * circumference);
+                circle.style.strokeDashoffset = offset;
+
+                // Animate percentage number
+                let currentPercent = 0;
+                const interval = setInterval(() => {
+                    if (currentPercent >= targetPercent) {
+                        clearInterval(interval);
+                    } else {
+                        currentPercent++;
+                        percentage.textContent = currentPercent + '%';
+                    }
+                }, 20);
+            }
+
+            navigate(direction) {
+                // Clear existing auto-rotation timer
+                if (this.autoRotationTimer) {
+                    clearInterval(this.autoRotationTimer);
+                }
+
+                const slides = Array.from(this.container.children);
+                
+                // Remove active class from all slides
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                    // Reset progress
+                    const circle = slide.querySelector('.progress-ring-circle');
+                    const percentage = slide.querySelector('.percentage');
+                    if (circle && percentage) {
+                        percentage.textContent = '0%';
+                        const radius = circle.r.baseVal.value;
+                        const circumference = radius * 2 * Math.PI;
+                        circle.style.strokeDashoffset = circumference;
+                    }
+                });
+
+                if (direction === 'next') {
+                    this.currentSlide = (this.currentSlide + 1) % slides.length;
+                } else {
+                    this.currentSlide = (this.currentSlide - 1 + slides.length) % slides.length;
+                }
+                
+                // Add active class and animate new slide
+                const nextSlide = slides[this.currentSlide];
+                if (nextSlide) {
+                    nextSlide.classList.add('active');
+                    this.animateProgress(nextSlide, skills[this.currentSlide].level);
+                }
+
+                // Restart auto-rotation
+                this.startAutoRotation();
+            }
+
+            startAutoRotation() {
+                // Clear any existing timer
+                if (this.autoRotationTimer) {
+                    clearInterval(this.autoRotationTimer);
+                }
+                // Start new timer with longer interval (8000ms = 8 seconds)
+                this.autoRotationTimer = setInterval(() => this.navigate('next'), 8000);
+            }
+        }
+
+        // Initialize carousel when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new SkillsCarousel();
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const downloadButtons = document.querySelectorAll('.download-btn');
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            downloadButtons.forEach(button => {
+                const container = button.closest('.certificate-container');
+                const preview = container.querySelector('.pdf-preview');
+                const iframe = preview.querySelector('iframe');
+                const certificatePath = button.dataset.certificate;
+                
+                // Only setup hover preview for desktop
+                if (!isMobile) {
+                    // Desktop preview behavior
+                    container.addEventListener('mouseenter', () => {
+                        if (!iframe.src) {
+                            iframe.src = certificatePath;
+                        }
+                        container.style.marginBottom = '420px';
+                        preview.style.height = '400px';
+                    });
+
+                    container.addEventListener('mouseleave', () => {
+                        container.style.marginBottom = '0';
+                        preview.style.height = '0';
+                        // Optional: clear iframe src when mouse leaves
+                        // iframe.src = '';
+                    });
+                } else {
+                    // Remove preview functionality on mobile
+                    preview.style.display = 'none';
+                    container.style.marginBottom = '0';
+                }
+                
+                // Download functionality for both mobile and desktop
+                button.addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    button.classList.add('downloading');
+                    
+                    try {
+                        const response = await fetch(certificatePath);
+                        if (!response.ok) throw new Error('Download failed');
+                        
+                        const blob = await response.blob();
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = certificatePath.split('/').pop();
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        window.URL.revokeObjectURL(url);
+                    } catch (error) {
+                        console.error('Error downloading certificate:', error);
+                        alert('Error downloading certificate. Please try again.');
+                    } finally {
+                        setTimeout(() => {
+                            button.classList.remove('downloading');
+                        }, 500);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

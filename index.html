@@ -323,46 +323,58 @@
         </script>
     
         <script>
-            // Add download button functionality
             document.addEventListener('DOMContentLoaded', () => {
-                const downloadButtons = document.querySelectorAll('.download-btn');
-                
-                downloadButtons.forEach(button => {
-                    const container = button.closest('.certificate-container');
-                    const preview = container.querySelector('.pdf-preview');
-                    
-                    preview.addEventListener('click', (e) => {
-                        e.stopPropagation(); // Prevent click from reaching button
-                    });
-                    
-                    button.addEventListener('click', async (e) => {
-                        e.preventDefault(); // Prevent any default button behavior
-                        const certificate = e.currentTarget.dataset.certificate;
-                        const button = e.currentTarget;
-                        
-                        button.classList.add('downloading');
-                        
-                        try {
-                            const response = await fetch(certificate);
-                            const blob = await response.blob();
-                            const url = window.URL.createObjectURL(blob);
-                            const a = document.createElement('a');
-                            a.href = url;
-                            a.download = certificate;
-                            document.body.appendChild(a);
-                            a.click();
-                            window.URL.revokeObjectURL(url);
-                            document.body.removeChild(a);
-                        } catch (error) {
-                            console.error('Error downloading certificate:', error);
-                        }
-                        
-                        setTimeout(() => {
-                            button.classList.remove('downloading');
-                        }, 500);
-                    });
-                });
+    const downloadButtons = document.querySelectorAll('.download-btn');
+
+    downloadButtons.forEach(button => {
+        const container = button.closest('.certificate-container');
+        const preview = container.querySelector('.pdf-preview');
+
+        // Previene conflictos al hacer clic en el preview
+        preview.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // Maneja eventos de clic y táctiles
+        ['click', 'touchend'].forEach(eventType => {
+            button.addEventListener(eventType, async (e) => {
+                e.preventDefault(); // Evita el comportamiento predeterminado del navegador
+                e.stopImmediatePropagation(); // Detiene cualquier propagación adicional
+
+                const certificate = e.currentTarget.dataset.certificate;
+                const button = e.currentTarget;
+
+                // Indica que se está descargando
+                button.classList.add('downloading');
+
+                try {
+                    // Descarga el archivo
+                    const response = await fetch(certificate);
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+
+                    // Crea un enlace de descarga temporal
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = certificate.split('/').pop(); // Extrae el nombre del archivo
+                    document.body.appendChild(a);
+                    a.click();
+
+                    // Limpia el enlace temporal
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                } catch (error) {
+                    console.error('Error al descargar el archivo:', error);
+                }
+
+                // Remueve el indicador después de un corto periodo
+                setTimeout(() => {
+                    button.classList.remove('downloading');
+                }, 500);
             });
+        });
+    });
+});
         </script>
     
     </body>

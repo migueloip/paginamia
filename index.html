@@ -236,12 +236,12 @@ p {
 }
 
 .carousel-container {
-    overflow: hidden;
+    overflow: visible;
     width: 100%;
     position: relative;
     display: flex;
     justify-content: center;
-    min-height: 200px; 
+    min-height: 350px; 
 }
 
 .carousel-slide {
@@ -250,6 +250,7 @@ p {
     transition: opacity 0.5s ease-in-out;
     pointer-events: none;
     width: 100%; 
+    padding-bottom: 100px;
 }
 
 .carousel-slide.active {
@@ -289,35 +290,26 @@ p {
     transform: translate(-50%, -50%);
     text-align: center;
     color: #ffffff;
+    width: 80%;  
 }
 
 .skill-name {
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin-top: 5px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
+    text-align: center;
 }
 
-.skill-name::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background: linear-gradient(135deg, #cc0000, #990000);
-    transform: rotate(45deg);
-    display: block;
-    border: 1px solid #800000;
-    flex-shrink: 0;
+.carousel-slide .skill-name::before {
+    display: none;
 }
 
 .percentage {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: #ffffff;
+    margin-bottom: 5px;
 }
 
 .carousel-btn {
@@ -573,6 +565,26 @@ p {
 .skill-name {
     word-break: break-word;
 }
+
+.skill-description {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(204, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    overflow: visible;
+    line-height: 1.5;
+}
+
+.skill-description.active {
+    opacity: 1;
+}
 </style></head>
 <body>
     <div class="container">
@@ -612,9 +624,19 @@ p {
             <section class="section animate-fade-in">
                 <h2 class="section-title">Acerca de mí</h2>
                 <p>
-                    Soy apasionado por la tecnología, busco aplicar mis habilidades en desarrollo web y programación para crear 
-                    soluciones tecnológicas eficientes y de impacto.
+                    Soy un apasionado por la tecnología y la constante búsqueda de soluciones. Aunque no soy un experto, me gusta investigar y aprender hasta que domino cualquier desafío. Esa es mi manera de convertirme en un mejor desarrollador web y programador.
+                <br>
+                  <br>
+                  Busco aplicar mis habilidades para crear sitios web intuitivos y soluciones empresariales innovadoras que mejoren la eficiencia y productividad de las empresas.
                 </p>
+            </section>
+
+            <section class="section animate-fade-in">
+                <h2 class="section-title">Idiomas</h2>
+                <div class="skill-list">
+                    <div class="skill-item experience-title">Español - Nativo</div>
+                    <div class="skill-item experience-title">Inglés - A2 (lectura técnica y comunicación básica)</div>
+                </div>
             </section>
 
             <section class="section animate-fade-in">
@@ -662,7 +684,7 @@ p {
                             Descargar Certificado
                         </button>
                         <div class="pdf-preview">
-                            <iframe src="" frameborder="0"></iframe>
+                            <iframe src="Certificado (Diseño Web con HTML5 + CSS).pdf" frameborder="0"></iframe>
                         </div>
                     </div>
                 </div>
@@ -679,7 +701,7 @@ p {
                             Descargar Certificado
                         </button>
                         <div class="pdf-preview">
-                            <iframe src="" frameborder="0"></iframe>
+                            <iframe src="Certificado (Marketing Digital).pdf" frameborder="0"></iframe>
                         </div>
                     </div>
                 </div>
@@ -696,7 +718,7 @@ p {
                             Descargar Certificado
                         </button>
                         <div class="pdf-preview">
-                            <iframe src="" frameborder="0"></iframe>
+                            <iframe src="Certificado (Principios básicos de Internet de las Cosas).pdf" frameborder="0"></iframe>
                         </div>
                     </div>
                 </div>
@@ -718,14 +740,6 @@ p {
                             <path fill="currentColor" d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
                         </svg>
                     </button>
-                </div>
-            </section>
-
-            <section class="section animate-fade-in">
-                <h2 class="section-title">Idiomas</h2>
-                <div class="skill-list">
-                    <div class="skill-item">Español - Nativo</div>
-                    <div class="skill-item">Inglés - A2 (lectura técnica y comunicación básica)</div>
                 </div>
             </section>
         </div>
@@ -755,14 +769,46 @@ p {
 
     <script>
         const skills = [
-            { name: 'HTML5/CSS3', level: 85 },
-            { name: 'JavaScript', level: 75 },
-            { name: 'Python', level: 70 },
-            { name: 'Java', level: 65 },
-            { name: 'Git', level: 60 },
-            { name: 'VS Code', level: 80 },
-            { name: 'Reparación de móviles', level: 90 },
-            { name: 'Mantenimiento de PCs', level: 85 }
+            { 
+                name: 'HTML5/CSS3', 
+                level: 85,
+                description: 'Dominio en creación de estructuras web semánticas y estilos modernos, incluyendo diseño responsive y animaciones CSS.'
+            },
+            { 
+                name: 'JavaScript', 
+                level: 75,
+                description: 'Desarrollo de funcionalidades interactivas, manipulación del DOM y uso de APIs modernas para crear experiencias web dinámicas.'
+            },
+            { 
+                name: 'Python', 
+                level: 70,
+                description: 'Programación backend, automatización de tareas y análisis de datos usando frameworks populares como Django y Flask.'
+            },
+            { 
+                name: 'Java', 
+                level: 65,
+                description: 'Desarrollo de aplicaciones orientadas a objetos, con énfasis en patrones de diseño y principios SOLID.'
+            },
+            { 
+                name: 'Git', 
+                level: 60,
+                description: 'Control de versiones, gestión de ramas, resolución de conflictos y colaboración en equipos de desarrollo.'
+            },
+            { 
+                name: 'VS Code', 
+                level: 80,
+                description: 'Dominio del editor, extensiones productivas, debugging y control de versiones integrado.'
+            },
+            { 
+                name: 'Reparación de móviles', 
+                level: 90,
+                description: 'Diagnóstico y reparación de hardware/software en dispositivos móviles, incluyendo reemplazo de componentes.'
+            },
+            { 
+                name: 'Mantenimiento de PCs', 
+                level: 85,
+                description: 'Optimización, actualización y reparación de computadoras, incluyendo hardware y sistemas operativos.'
+            }
         ];
 
         class SkillsCarousel {
@@ -810,6 +856,7 @@ p {
                             <span class="skill-name">${skill.name}</span>
                         </div>
                     </div>
+                    <div class="skill-description">${skill.description}</div>
                 `;
                 return slide;
             }
@@ -862,11 +909,15 @@ p {
                     // Reset progress
                     const circle = slide.querySelector('.progress-ring-circle');
                     const percentage = slide.querySelector('.percentage');
+                    const description = slide.querySelector('.skill-description');
                     if (circle && percentage) {
                         percentage.textContent = '0%';
                         const radius = circle.r.baseVal.value;
                         const circumference = radius * 2 * Math.PI;
                         circle.style.strokeDashoffset = circumference;
+                    }
+                    if (description) {
+                        description.classList.remove('active');
                     }
                 });
 
@@ -880,6 +931,10 @@ p {
                 const nextSlide = slides[this.currentSlide];
                 if (nextSlide) {
                     nextSlide.classList.add('active');
+                    const description = nextSlide.querySelector('.skill-description');
+                    if (description) {
+                        setTimeout(() => description.classList.add('active'), 300);
+                    }
                     this.animateProgress(nextSlide, skills[this.currentSlide].level);
                 }
 

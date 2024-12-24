@@ -185,23 +185,46 @@ body {
     background: linear-gradient(to top, transparent, #333);
 }
 
-.whatsapp-button {
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.whatsapp-button, .back-button {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: #25D366;
-    color: white;
     padding: 15px 30px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-button {
+    background: #25D366;
+    color: white;
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
 }
 
-.whatsapp-button:hover {
+.back-button {
+    background: #ff1e1e;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 30, 30, 0.3);
+}
+
+.whatsapp-button:hover, .back-button:hover {
     transform: translateY(-5px);
+}
+
+.whatsapp-button:hover {
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.back-button:hover {
+    box-shadow: 0 6px 20px rgba(255, 30, 30, 0.4);
 }
 
 .card img, .hosting-card img {
@@ -227,6 +250,11 @@ body {
     
     .card-container {
         grid-template-columns: 1fr;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: center;
     }
 }
 </style>
@@ -353,13 +381,15 @@ body {
 
     <section class="contact-section">
         <h2>¿Listo para dar el siguiente paso?</h2>
-        <a href="https://wa.me/56957068275" class="whatsapp-button" target="_blank">
-            <img src="/pqsite/whatsapp_logo_icon_258952.svg" alt="WhatsApp Icon">
-            Contáctame por WhatsApp
-        </a>
-        <a href="index.html" class="back-button">
+        <div class="button-container">
+            <a href="https://wa.me/56957068275" class="whatsapp-button" target="_blank">
+                <img src="/pqsite/whatsapp_logo_icon_258952.svg" alt="WhatsApp Icon">
+                Contáctame por WhatsApp
+            </a>
+            <a href=")" class="back-button">
                 Volver atrás
             </a>
+        </div>
     </section>
 
 <script>

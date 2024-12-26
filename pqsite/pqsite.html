@@ -1,7 +1,9 @@
-<html><head><base href="/">
+<html>
+<head>
+<base href="/">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>¿Por qué necesitas una página web?</title>
+<title>&#xbf;Por qu&#xe9; necesitas una p&#xe1;gina web?</title>
 <style>
 * {
     margin: 0;
@@ -46,6 +48,33 @@ body {
     padding: 60px 20px;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative; /* Add for absolute positioning of dividers */
+}
+
+.section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, 
+        transparent, 
+        #ff1e1e 20%, 
+        #ff1e1e 80%, 
+        transparent
+    );
+}
+
+.section h2, 
+.section h3,
+.signals h2,
+.signals h3,
+.hosting-section h2,
+.hosting-section h3,
+.contact-section h2,
+.contact-section h3 {
+    text-align: center;
 }
 
 .section h2 {
@@ -57,9 +86,10 @@ body {
 
 .card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 40px;
+    text-align: center;
 }
 
 .card {
@@ -87,14 +117,34 @@ body {
     position: relative;
 }
 
+.signals::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, 
+        transparent, 
+        #ff1e1e 20%, 
+        #ff1e1e 80%, 
+        transparent
+    );
+}
+
 .signals::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50px;
-    background: linear-gradient(to bottom, transparent, #2a2a2a);
+    height: 3px;
+    background: linear-gradient(to right, 
+        transparent, 
+        #ff1e1e 20%, 
+        #ff1e1e 80%, 
+        transparent
+    );
 }
 
 .signal-card {
@@ -129,7 +179,7 @@ body {
 }
 
 .hosting-section {
-    background: linear-gradient(to bottom, #2a2a2a, #333);
+    background: linear-gradient(to bottom, #1a1a1a, #222222);
     padding: 80px 20px;
     position: relative;
 }
@@ -140,8 +190,35 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px;
-    background: linear-gradient(to top, transparent, #2a2a2a);
+    height: 3px;
+    background: linear-gradient(to right, 
+        transparent, 
+        #ff1e1e 20%, 
+        #ff1e1e 80%, 
+        transparent
+    );
+}
+
+.hosting-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, 
+        transparent, 
+        #ff1e1e 20%, 
+        #ff1e1e 80%, 
+        transparent
+    );
+}
+
+.hosting-section h2 {
+    color: #ff1e1e;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .hosting-cards {
@@ -153,13 +230,13 @@ body {
 }
 
 .hosting-card {
-    background: linear-gradient(145deg, #2a2a2a, #333);
-    border-radius: 15px;
+    background: #2a2a2a;
+    border-radius: 10px;
     padding: 20px;
     text-align: center;
-    border: 1px solid #444;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid #333;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255,0,0,0.1);
 }
 
 .hosting-card:hover {
@@ -168,8 +245,12 @@ body {
     box-shadow: 0 8px 25px rgba(255,30,30,0.15);
 }
 
+.hosting-card h3 {
+    color: #ff1e1e;
+    margin-bottom: 15px;
+}
+
 .contact-section {
-    text-align: center;
     padding: 80px 20px;
     background: linear-gradient(to bottom, #333, #1a1a1a);
     position: relative;
@@ -181,8 +262,13 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px;
-    background: linear-gradient(to top, transparent, #333);
+    height: 3px;
+    background: linear-gradient(to right, 
+        transparent, 
+        #ff1e1e 20%, 
+        #ff1e1e 80%, 
+        transparent
+    );
 }
 
 .button-container {
@@ -243,6 +329,97 @@ body {
     height: 30px;
 }
 
+.example-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: #ff1e1e;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.example-button:hover {
+    background: #ff4444;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 30, 30, 0.2);
+}
+
+.preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-bottom: 30px;
+    max-width: 800px; /* Updated from default */
+}
+
+.preview {
+    width: 80%; /* Updated from 300px */
+    max-width: 600px; /* Added max-width */
+    height: auto;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.preview iframe {
+    width: 100%;
+    height: 400px; /* Made taller to match wider width */
+    border: none;
+}
+
+.preview-container:hover {
+    transform: translateY(-5px);
+    border-color: #ff1e1e;
+}
+
+.preview-container p {
+    margin-bottom: 15px;
+}
+
+.preview-container {
+    position: relative;
+}
+
+.preview {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    background: #2a2a2a;
+    border: 1px solid #ff1e1e;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    z-index: 100;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.preview::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #ff1e1e transparent;
+}
+
+.example-button:hover + .preview {
+    display: block;
+}
+
 @media (max-width: 768px) {
     .header h1 {
         font-size: 2em;
@@ -256,27 +433,50 @@ body {
         flex-direction: column;
         align-items: center;
     }
+    
+    .preview {
+        display: none !important;
+    }
+    
+    .example-button:hover + .preview {
+        display: none !important; 
+    }
+}
+
+.section:not(:nth-child(2)) .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.section:nth-child(3) .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 </style>
 </head>
 <body>
     <header class="header">
-        <h1>¿Por qué tu negocio necesita una página web?</h1>
-        <p>En la era digital, tu presencia online es más importante que nunca</p>
+        <h1>&#xbf;Por qu&#xe9; tu negocio necesita una p&#xe1;gina web?</h1>
+        <p>En la era digital, tu presencia online es m&#xe1;s importante que nunca</p>
     </header>
 
     <section class="section">
-        <h2>Beneficios de tener una página web</h2>
+        <h2>Beneficios de tener una p&#xe1;gina web</h2>
         <div class="card-container">
             <div class="card">
                 <img src="/pqsite/calendar-with-a-clock-time-tools_icon-icons.com_56831.svg" alt="24/7 Icon">
                 <h3>Presencia 24/7</h3>
-                <p>Tu negocio estará disponible para tus clientes en cualquier momento, incluso fuera del horario comercial.</p>
+                <p>Tu negocio estar&#xe1; disponible para tus clientes en cualquier momento, incluso fuera del horario comercial.</p>
             </div>
             <div class="card">
                 <img src="/pqsite/Shield-icon.svg" alt="Credibility Icon">
                 <h3>Credibilidad</h3>
-                <p>Una página web profesional aumenta la confianza de tus clientes y mejora la imagen de tu marca.</p>
+                <p>Una p&#xe1;gina web profesional aumenta la confianza de tus clientes y mejora la imagen de tu marca.</p>
             </div>
             <div class="card">
                 <img src="/pqsite/GLOBALandwwwicon.svg" alt="Global Icon">
@@ -287,67 +487,87 @@ body {
     </section>
 
     <section class="section">
-        <h2>¿Qué tipo de sitio web necesita tu negocio?</h2>
+        <h2>&#xbf;Qu&#xe9; tipo de sitio web necesita tu negocio?</h2>
         <div class="card-container">
-            <div class="card">
-                <img src="/pqsite/paginawebicon.svg" alt="Corporate Site Icon">
+            <div class="preview-container">
                 <h3>Sitio Corporativo</h3>
-                <p>Ideal para empresas que buscan presentar su información de manera profesional y establecer presencia online.</p>
+                <p>Una p&#xe1;gina web profesional dise&#xf1;ada espec&#xed;ficamente para presentar tu empresa y servicios de manera formal y atractiva. Incluye secciones como &quot;Sobre Nosotros&quot;, &quot;Servicios&quot;, &quot;Portafolio&quot; y &quot;Contacto&quot;. Ideal para establecer una presencia digital profesional y generar confianza en tus clientes potenciales. Perfecta para empresas B2B y servicios profesionales.</p>
+                <a href="ejemplos/ejemplo-corporativo.html" class="example-button" target="_blank">Ejemplo de Sitio Corporativo</a>
+                <div class="preview">
+                    <iframe src="ejemplos/ejemplo-corporativo.html" title="Preview Sitio Corporativo"></iframe>
+                </div>
             </div>
-            <div class="card">
-                <img src="/pqsite/shopping-cart_icon-icons.com_72552.svg" alt="E-commerce Icon">
+
+            <div class="preview-container">
                 <h3>E-commerce</h3>
-                <p>Perfecto para negocios que desean vender productos en línea y gestionar un catálogo digital.</p>
+                <p>Tienda virtual completa que permite vender tus productos online las 24 horas del d&#xed;a, los 7 d&#xed;as de la semana. Incluye cat&#xe1;logo de productos, carrito de compras, pasarela de pagos segura, gesti&#xf3;n de inventario y panel de administraci&#xf3;n. Perfecta para minoristas, mayoristas y cualquier negocio que quiera vender productos en l&#xed;nea. Optimizada para m&#xf3;viles y con herramientas de marketing integradas.</p>
+                <a href="ejemplos/ejemplo-ecommerce.html" class="example-button" target="_blank">Ejemplo de E-commerce</a>
+                <div class="preview">
+                    <iframe src="ejemplos/ejemplo-ecommerce.html" title="Preview E-commerce"></iframe>
+                </div>
             </div>
-            <div class="card">
-                <img src="/pqsite/rocket_icon-icons.com_48236.png" alt="Landing Page Icon">
+
+            <div class="preview-container">
                 <h3>Landing Page</h3>
-                <p>Excelente para promocionar un producto o servicio específico y captar leads.</p>
+                <p>P&#xe1;gina web especializada y optimizada para convertir visitantes en clientes o leads. Dise&#xf1;ada estrat&#xe9;gicamente para promocionar un producto o servicio espec&#xed;fico, con llamados a la acci&#xf3;n claros y contenido persuasivo. Ideal para campa&#xf1;as de marketing digital, lanzamientos de productos o servicios, y captaci&#xf3;n de leads. Incluye formularios de contacto, testimonios y elementos de social proof.</p>
+                <a href="ejemplos/ejemplo-landing.html" class="example-button" target="_blank">Ejemplo de Landing Page</a>
+                <div class="preview">
+                    <iframe src="ejemplos/ejemplo-landing.html" title="Preview Landing Page"></iframe>
+                </div>
             </div>
-            <div class="card">
-                <img src="/pqsite/page_icon.svg" alt="Blog Icon">
-                <h3>Blog Corporativo</h3>
-                <p>Ideal para compartir contenido relevante y posicionarse como experto en el sector.</p>
+
+            <div class="preview-container">
+                <h3>Blog</h3>
+                <p>Plataforma de contenido din&#xe1;mico que te permite compartir art&#xed;culos, noticias y recursos valiosos con tu audiencia. Ideal para establecerte como autoridad en tu industria, mejorar el SEO y mantener una conexi&#xf3;n constante con tus clientes. Incluye categor&#xed;as, tags, comentarios, newsletter y compartir en redes sociales. Perfecta para estrategias de marketing de contenidos y construcci&#xf3;n de comunidad.</p>
+                <a href="ejemplos/ejemplo-blog.html" class="example-button" target="_blank">Ejemplo de Blog</a>
+                <div class="preview">
+                    <iframe src="ejemplos/ejemplo-blog.html" title="Preview Blog"></iframe>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="section signals">
-        <h2>5 Señales de que tu negocio necesita una página web</h2>
+        <h2>5 Se&#xf1;ales de que tu negocio necesita una p&#xe1;gina web</h2>
         
         <div class="signal-card">
+            <img src="/pqsite/page_icon.svg" alt="Page Icon">
             <div class="signal-number">1</div>
             <div>
-                <h3>Tus competidores ya están online</h3>
-                <p>Si tu competencia ya tiene presencia web, estás perdiendo oportunidades de negocio.</p>
+                <h3>Tus competidores ya est&#xe1;n online</h3>
+                <p>Si tu competencia ya tiene presencia web, est&#xe1;s perdiendo oportunidades de negocio.</p>
             </div>
         </div>
 
         <div class="signal-card">
+            <img src="/pqsite/rocket_icon-icons.com_48236.png" alt="Rocket Icon">
             <div class="signal-number">2</div>
             <div>
-                <h3>Recibes muchas consultas básicas</h3>
+                <h3>Recibes muchas consultas b&#xe1;sicas</h3>
                 <p>Una web puede responder preguntas frecuentes y liberar tiempo valioso.</p>
             </div>
         </div>
 
         <div class="signal-card">
+            <img src="/pqsite/shopping-cart_icon-icons.com_72552.svg" alt="Shopping Cart Icon">
             <div class="signal-number">3</div>
             <div>
                 <h3>Quieres expandir tu negocio</h3>
-                <p>Una página web es esencial para alcanzar nuevos mercados y clientes.</p>
+                <p>Una p&#xe1;gina web es esencial para alcanzar nuevos mercados y clientes.</p>
             </div>
         </div>
 
         <div class="signal-card">
+            <img src="/pqsite/paginawebicon.svg" alt="Web Icon">
             <div class="signal-number">4</div>
             <div>
-                <h3>Tus clientes buscan información online</h3>
-                <p>La mayoría de las personas investigan en internet antes de comprar.</p>
+                <h3>Tus clientes buscan informaci&#xf3;n online</h3>
+                <p>La mayor&#xed;a de las personas investigan en internet antes de comprar.</p>
             </div>
         </div>
 
         <div class="signal-card">
+            <img src="/pqsite/GLOBALandwwwicon.svg" alt="Global Icon">
             <div class="signal-number">5</div>
             <div>
                 <h3>Necesitas mostrar tu trabajo</h3>
@@ -357,18 +577,18 @@ body {
     </section>
 
     <section class="hosting-section">
-        <h2>¿Cómo funciona?</h2>
+        <h2>&#xbf;C&#xf3;mo funciona?</h2>
         <div class="hosting-cards">
-            <div class="hosting-card">
-                <img src="/pqsite/website-design-symbol_icon-icons.com_53822.svg" alt="Design Icon">
-                <h3>Diseño Web</h3>
-                <p>Desarrollo tu página web personalizada según tus necesidades y marca</p>
-            </div>
-
             <div class="hosting-card">
                 <img src="/pqsite/host_dedicated_cloud_ico.svg" alt="Hosting Icon">
                 <h3>Hosting Incluido</h3>
-                <p>Tu sitio web incluye alojamiento básico sin costo adicional</p>
+                <p>Tu sitio web incluye alojamiento b&#xe1;sico sin costo adicional, con un subdominio gratuito (ej: tunegocio.midominio.com)</p>
+            </div>
+
+            <div class="hosting-card">
+                <img src="/pqsite/website-design-symbol_icon-icons.com_53822.svg" alt="Design Icon">
+                <h3>Dise&#xf1;o Web</h3>
+                <p>Desarrollo tu p&#xe1;gina web personalizada seg&#xfa;n tus necesidades y marca</p>
             </div>
 
             <div class="hosting-card">
@@ -380,32 +600,72 @@ body {
     </section>
 
     <section class="contact-section">
-        <h2>¿Listo para dar el siguiente paso?</h2>
+        <h2>&#xbf;Listo para dar el siguiente paso?</h2>
         <div class="button-container">
             <a href="https://wa.me/56957068275" class="whatsapp-button" target="_blank">
                 <img src="/pqsite/whatsapp_logo_icon_258952.svg" alt="WhatsApp Icon">
-                Contáctame por WhatsApp
+                Cont&#xe1;ctame por WhatsApp
             </a>
-            <a href="index.html" class="back-button">
-                Volver atrás
+            <a href="javascript:history.back()" class="back-button">
+                Volver atr&#xe1;s
             </a>
         </div>
     </section>
 
-<script>
-const floatingContainer = document.querySelector('.floating-elements');
+<script>const floatingContainer = document.querySelector('.floating-elements');
 const shapes = [];
+function isMobileDevice() {
+  return window.innerWidth <= 768 || window.innerHeight <= 600;
+}
 function addFloatingElement(index) {
-    return;
+  return;
 }
 addFloatingElement(0);
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
     });
+  });
 });
-</script>
-</body></html>
+document.querySelectorAll('.preview-container').forEach(container => {
+  const preview = container.querySelector('.preview');
+  const button = container.querySelector('.example-button');
+  let timeout;
+  if (!isMobileDevice()) {
+    button.addEventListener('mouseenter', () => {
+      clearTimeout(timeout);
+      preview.style.display = 'block';
+      container.style.marginBottom = preview.offsetHeight + 'px';
+      let nextContainer = container.nextElementSibling;
+      while (nextContainer) {
+        nextContainer.style.transform = `translateY(${preview.offsetHeight}px)`;
+        nextContainer = nextContainer.nextElementSibling;
+      }
+    });
+    container.addEventListener('mouseleave', () => {
+      timeout = setTimeout(() => {
+        preview.style.display = 'none';
+        container.style.marginBottom = '0';
+        let nextContainer = container.nextElementSibling;
+        while (nextContainer) {
+          nextContainer.style.transform = 'translateY(0)';
+          nextContainer = nextContainer.nextElementSibling;
+        }
+      }, 200);
+    });
+  }
+});
+window.addEventListener('resize', () => {
+  if (isMobileDevice()) {
+    document.querySelectorAll('.preview').forEach(preview => {
+      preview.style.display = 'none';
+    });
+    document.querySelectorAll('.preview-container').forEach(container => {
+      container.style.marginBottom = '0';
+    });
+  }
+});</script>
+</body>
+</html>

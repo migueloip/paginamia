@@ -1,0 +1,375 @@
+<html><head><base href="/" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Corporativo - Empresa XYZ</title>
+    <style>
+    :root {
+      --primary: #1a4b84;
+      --secondary: #2196f3;
+      --light: #f5f8fa;
+      --dark: #333;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background: var(--light);
+    }
+    
+    .header {
+      background: var(--primary);
+      color: white;
+      padding: 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .company-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .company-logo {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 500;
+    }
+    
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+    
+    .main-content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      display: grid;
+      grid-template-columns: 7fr 3fr;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+    
+    .posts {
+      display: grid;
+      gap: 2rem;
+    }
+    
+    .post-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    
+    .post-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .post-meta {
+      display: flex;
+      gap: 1rem;
+      color: #666;
+      font-size: 0.9rem;
+      margin: 1rem 0;
+    }
+    
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .tag {
+      background: var(--primary);
+      color: white;
+      padding: 0.2rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+    }
+    
+    .sidebar {
+      position: sticky;
+      top: 80px;
+      height: fit-content;
+    }
+    
+    .widget {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .event-list {
+      list-style: none;
+    }
+    
+    .event-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .event-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .event-date {
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .newsletter-form input {
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
+    .btn {
+      background: var(--secondary);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .btn:hover {
+      background: #1976d2;
+    }
+    
+    .social-share {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--light);
+      transition: background 0.3s;
+    }
+    
+    .social-icon:hover {
+      background: var(--secondary);
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .nav-links {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    </style>
+    </head>
+    <body>
+      <header class="header">
+        <nav class="nav">
+          <div class="company-header">
+            <svg class="company-logo" viewBox="0 0 50 50" fill="white">
+              <rect x="10" y="10" width="30" height="30" rx="5"/>
+              <circle cx="25" cy="25" r="10" fill="var(--secondary)"/>
+            </svg>
+            <h1>Empresa XYZ</h1>
+          </div>
+          <div class="nav-links">
+            <a href="https://example.com">Inicio</a>
+            <a href="https://example.com/nosotros">Nosotros</a>
+            <a href="https://example.com/productos">Productos</a>
+            <a href="https://example.com/contacto">Contacto</a>
+          </div>
+        </nav>
+      </header>
+    
+      <main class="main-content">
+        <section class="posts">
+          <article class="post-card">
+            <h2>Lanzamiento Exitoso de Nuestra Nueva Línea de Productos Sostenibles</h2>
+            <div class="post-meta">
+              <span>Por Departamento de Innovación</span>
+              <span>15 Enero, 2024</span>
+            </div>
+            <p>Nos complace anunciar el exitoso lanzamiento de nuestra nueva línea de productos eco-friendly, reafirmando nuestro compromiso con la sostenibilidad...</p>
+            <div class="tags">
+              <span class="tag">Innovación</span>
+              <span class="tag">Sostenibilidad</span>
+              <span class="tag">Productos</span>
+            </div>
+            <div class="social-share">
+              <a href="https://twitter.com/share" class="social-icon">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                </svg>
+              </a>
+              <a href="https://linkedin.com/share" class="social-icon">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+    
+          <article class="post-card">
+            <h2>Reconocimiento Internacional en Innovación Tecnológica</h2>
+            <div class="post-meta">
+              <span>Por Equipo de Comunicaciones</span>
+              <span>12 Enero, 2024</span>
+            </div>
+            <p>Empresa XYZ ha sido galardonada con el premio a la Innovación Tecnológica 2024 por nuestras soluciones pioneras en IA...</p>
+            <div class="tags">
+              <span class="tag">Premios</span>
+              <span class="tag">Tecnología</span>
+              <span class="tag">IA</span>
+            </div>
+            <div class="social-share">
+              <a href="https://twitter.com/share" class="social-icon">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                </svg>
+              </a>
+              <a href="https://linkedin.com/share" class="social-icon">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </section>
+    
+        <aside class="sidebar">
+          <div class="widget">
+            <h3>Próximos Eventos</h3>
+            <ul class="event-list">
+              <li>
+                <span class="event-date">20 Febrero, 2024</span>
+                <p>Conferencia de Innovación XYZ 2024</p>
+              </li>
+              <li>
+                <span class="event-date">15 Marzo, 2024</span>
+                <p>Lanzamiento Nueva Plataforma</p>
+              </li>
+              <li>
+                <span class="event-date">5 Abril, 2024</span>
+                <p>Workshop Tecnológico</p>
+              </li>
+            </ul>
+          </div>
+    
+          <div class="widget">
+            <h3>Boletín Corporativo</h3>
+            <p>Mantente al día con nuestras últimas novedades</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Tu correo corporativo">
+              <button class="btn">Suscribirse</button>
+            </form>
+          </div>
+        </aside>
+      </main>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Newsletter Form Handling
+      const newsletterForm = document.querySelector('.newsletter-form');
+      newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input[type="email"]').value;
+        if (email) {
+          alert('¡Gracias por suscribirte a nuestro boletín corporativo!');
+          this.reset();
+        }
+      });
+    
+      // Social Share Functionality
+      const shareButtons = document.querySelectorAll('.social-share a');
+      shareButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          const url = encodeURIComponent(window.location.href);
+          const title = encodeURIComponent(document.title);
+          let shareUrl;
+          
+          if (this.href.includes('twitter')) {
+            shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+          } else if (this.href.includes('linkedin')) {
+            shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+          }
+          
+          window.open(shareUrl, '_blank', 'width=600,height=400');
+        });
+      });
+    
+      // Lazy Loading Implementation
+      const posts = document.querySelectorAll('.post-card');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            observer.unobserve(entry.target);
+          }
+        });
+      });
+    
+      posts.forEach(post => {
+        post.style.opacity = 0;
+        post.style.transition = 'opacity 0.5s ease-in';
+        observer.observe(post);
+      });
+    });
+    </script>
+    </body>
+    </html>

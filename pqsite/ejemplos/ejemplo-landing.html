@@ -1,0 +1,260 @@
+<html><head><base href="." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartWatch Pro X | El Reloj del Futuro</title>
+    
+    <style>
+    :root {
+        --primary: #7c3aed;
+        --secondary: #5b21b6;
+        --light: #f8fafc;
+        --dark: #1e293b;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+    
+    body {
+        line-height: 1.6;
+        color: var(--dark);
+    }
+    
+    .hero {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        min-height: 90vh;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .product-showcase {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+    
+    .product-image {
+        flex: 1;
+        position: relative;
+    }
+    
+    .watch-svg {
+        width: 100%;
+        max-width: 500px;
+        filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .hero-content {
+        color: white;
+        flex: 1;
+    }
+    
+    h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+    
+    .price {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin: 1.5rem 0;
+    }
+    
+    .original-price {
+        text-decoration: line-through;
+        opacity: 0.7;
+        font-size: 1.5rem;
+        margin-right: 1rem;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: #22c55e;
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        margin-top: 2rem;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+    }
+    
+    .cta-button:hover {
+        transform: translateY(-3px);
+        background: #16a34a;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .features {
+        padding: 4rem 2rem;
+        background: var(--light);
+    }
+    
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+    
+    .feature-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        text-align: center;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .countdown {
+        background: #ef4444;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+        display: inline-block;
+    }
+    
+    .benefits {
+        list-style: none;
+        margin: 1rem 0;
+    }
+    
+    .benefits li {
+        margin: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .benefits li::before {
+        content: "✓";
+        color: #22c55e;
+        font-weight: bold;
+    }
+    
+    @media (max-width: 768px) {
+        .product-showcase {
+            flex-direction: column-reverse;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        .hero {
+            text-align: center;
+        }
+    }
+    </style>
+    </head>
+    <body>
+        <section class="hero">
+            <div class="container">
+                <div class="product-showcase">
+                    <div class="hero-content">
+                        <div class="countdown" id="countdown">¡Oferta termina en 24:00:00!</div>
+                        <h1>SmartWatch Pro X</h1>
+                        <p>El reloj inteligente más avanzado del mercado. Monitorea tu salud, recibe notificaciones y más.</p>
+                        <div class="price">
+                            <span class="original-price">$299.99</span>
+                            $199.99
+                        </div>
+                        <ul class="benefits">
+                            <li>Batería de larga duración (7 días)</li>
+                            <li>Resistente al agua IP68</li>
+                            <li>Monitor cardíaco 24/7</li>
+                            <li>GPS integrado</li>
+                        </ul>
+                        <a href="https://checkout.example.com/smartwatch-pro-x" class="cta-button">¡Comprar Ahora!</a>
+                    </div>
+                    <div class="product-image">
+                        <svg class="watch-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="100" r="80" fill="#333"/>
+                            <circle cx="100" cy="100" r="75" fill="#666"/>
+                            <circle cx="100" cy="100" r="70" fill="#999"/>
+                            <rect x="90" y="30" width="20" height="40" fill="#333"/>
+                            <rect x="90" y="130" width="20" height="40" fill="#333"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="features">
+            <div class="container">
+                <h2>Características Destacadas</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Monitor de Salud</h3>
+                        <p>Seguimiento continuo de ritmo cardíaco, oxígeno en sangre y calidad del sueño.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Deportes</h3>
+                        <p>+30 modos deportivos con métricas detalladas y GPS integrado.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Notificaciones</h3>
+                        <p>Recibe llamadas, mensajes y notificaciones directamente en tu muñeca.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    <script>
+    // Countdown Timer
+    function updateCountdown() {
+        const countdownElement = document.getElementById('countdown');
+        let time = localStorage.getItem('countdownTime');
+        
+        if (!time) {
+            time = 24 * 60 * 60; // 24 hours in seconds
+        }
+        
+        function formatTime(seconds) {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            return `¡Oferta termina en ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}!`;
+        }
+        
+        const countdownInterval = setInterval(() => {
+            time--;
+            if (time <= 0) {
+                time = 24 * 60 * 60;
+            }
+            localStorage.setItem('countdownTime', time);
+            countdownElement.textContent = formatTime(time);
+        }, 1000);
+    }
+    
+    updateCountdown();
+    </script>
+    
+    </body></html>
